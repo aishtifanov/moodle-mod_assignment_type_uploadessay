@@ -1,0 +1,42 @@
+
+.tree {
+	margin-left: 15px;
+}
+
+.tree span {
+	cursor: pointer;
+}
+
+.tree ul {
+	style: hidden;
+	padding: 0;
+}
+
+.tree li {
+	list-style-type: none;
+	padding: 3px;
+}
+
+.tree label {
+	display: inline;
+}
+
+.tree p {
+	margin-top: 13px;
+	margin-bottom: 3px;
+	font-size: 18px;
+}
+
+.menuTree {
+	margin-left: 17px;
+}
+
+.menuTree label {
+	display: inline;
+}
+
+.disabled {
+	color: #898989;
+	cursor: default;
+}
+

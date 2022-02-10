@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/assignment/type/uploadessay/db" VERSION="20100919" COMMENT="XMLDB file for Moodle mod/assignment/type/uploadessay"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="z_essay_themes" COMMENT="z_essay_themes table retrofitted from MySQL" NEXT="z_essay_submissions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="parentid"/>
+        <FIELD NAME="parentid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="parentid" NEXT="level"/>
+        <FIELD NAME="level" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="name" NEXT="path"/>
+        <FIELD NAME="path" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="level"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="z_essay_submissions" COMMENT="z_essay_submissions table retrofitted from MySQL" PREVIOUS="z_essay_themes">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="assignmentid"/>
+        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="essaythemeid"/>
+        <FIELD NAME="essaythemeid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="assignmentid" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="essaythemeid" NEXT="isconfirm"/>
+        <FIELD NAME="isconfirm" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="userid" NEXT="ispromise"/>
+        <FIELD NAME="ispromise" TYPE="int" LENGTH="3" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="isconfirm" NEXT="timestart"/>
+        <FIELD NAME="timestart" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="ispromise" NEXT="timefinish"/>
+        <FIELD NAME="timefinish" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="timestart"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="essay_theme_fk" UNIQUE="false" FIELDS="essaythemeid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+  <STATEMENTS>
+    <STATEMENT NAME="insert z_essay_themes" TYPE="insert" TABLE="z_essay_themes" COMMENT="Initial insert of records on table z_essay_themes">
+		<SENTENCES>
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (0,'Мир, в котором мы живем. Проблемы общества',0,'1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'Наш дом столица или провинция',1,'1.1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'Социальные перспективы молодежи в современном мире',1,'1.2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'Молодежь в большом городе',1,'1.3.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'Российское общество в восприятии иностранцев',1,'1.4.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'На кого похож журналист: сыщик, рассказчик?',1,'1.5.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (1,'История моей семьи и «большая» история страны',1,'1.6.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (0,'Профессиональная деятельность',0,'2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (8,'Карьера... Работа... Дело всей жизни?',1,'2.1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (8,'Приоритеты молодого поколения',1,'2.2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (8,'Гендерный фактор на рынке труда',1,'2.3.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (0,'Личность в современном мире',0,'3.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (12,'Живём, чтобы работать, или работаем, чтобы жить?',1,'3.1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (12,'Проблемы личности: кто мы? «Я царь – я раб – я червь – я бог» (Г. Державин)',1,'3.2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (12,'Вопросы любви и брака «Зачем арапа своего Младая любит Дездемона, Как месяц любит ночи мглу? Затем, что ветру и орлу И сердцу девы нет закона» (А. Пушкин)',1,'3.3.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (0,'Наука – прогресс или угроза? Наука и технологии',0,'4.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (16,'Открытия, которые изменили мир',1,'4.1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (16,'Технологии и личность в современном мире',1,'4.2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (16,'Наука и будущее человечества',1,'4.3.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (0,'Вечные ценности Культура в современном обществе',0,'5.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (20,'Весь мир – театр (В. Шекспир)',1,'5.1.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (20,'Современная мода и личность человека',1,'5.2.')" />
+			<SENTENCE TEXT="(parentid,name,level,path) VALUES (20,'Роль литературы в современном мире: «Скажи, что ты читаешь, и я скажу, кто ты» (Луи Блан)',1,'5.3.')" />
+		</SENTENCES>
+	</STATEMENT>		
+  </STATEMENTS>
+</XMLDB>

@@ -1,0 +1,43 @@
+
+<style>
+   p.dline {
+    line-height: 1.2;
+   }
+  .layer1 {
+    margin-left: 5%; 
+	margin-right: 5%; 
+    padding: 10px; 
+  } 
+</style>
+
+<div align="center"><strong>Внимательно прочитайте инструкцию!</strong></div> 
+
+<div class="layer1">
+
+ <p class="dline">Продолжительность сдачи творческого вступительного испытания составляет <strong>120 минут</strong>.</p>
+ <p class="dline">Перед прохождением испытания обязательно скачайте и распечатайте бланки выполнения творческой работы:
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;Ссылка: {$link2}
+ </p>
+ <p class="dline">Работа выполняется <strong>письменно (от руки).</strong></p>
+ <p class="dline">На бланках отметьте, пожалуйста, количество листов, которое вам понадобилось для написания работы. 
+ Сохраните оригинал работы: в дальнейшем его нужно будет направить в университет вместе с полным пакетом документов.</p>
+ <p class="dline">Минимальный проходной балл - 60.</p>
+ По истечении времени выполнения работы, ее необходимо отсканировать, загрузить в систему (в формате *.pdf) и завершить испытание.<br /> 
+ <p class="dline"><strong>Убедитесь заранее, что у вас есть устройство для сканирования работы.</strong><br /></p>
+ 
+ 
+<form method="post" action="view.php">
+<p class="dline">
+<input type="checkbox" name="isconfirm" value="1" onclick="handleDisable()"> <em>Я подтверждаю, что распечатал(а) бланки для
+написания работы и у меня есть сканирующее устройство для загрузки работы в электронном виде</em><br>
+</p>
+<p class="dline">
+<input type="checkbox" name="ispromise" value="1" onclick="handleDisable()"> <em>Я обязуюсь выполнить испытание в течение 120 минут
+без использования сторонних материалов</em><br>
+</p>
+<input type="hidden" name="id" value="{$id}" />
+<input type="hidden" name="sesskey" value="{$sesskey}" />
+<div align="center"><input type="submit" name="startpagebutton" value="Начать испытание" disabled></div>
+</form>
+
+</div>
