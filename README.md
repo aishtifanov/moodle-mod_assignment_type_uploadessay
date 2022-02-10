@@ -14,6 +14,10 @@
 4. Установить плагин.
 
 ## Внешний вид
+![image 1](img/assignment_uploadessay1.png)
+![image 2](img/assignment_uploadessay2.png)
+![image 3](img/assignment_uploadessay3.png)
+![image 4](img/assignment_uploadessay4.png)
 
 
 ## Минимальные требования
